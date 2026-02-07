@@ -13,7 +13,8 @@ public class KSorting {
 
         //swap within distance k
         for (int i = 0; i < myArray.length; i++) {
-            int min = i -k;
+            //determine valid range for swapping
+            int min = i - k;
             if (min < 0) {
                 min = 0;
             }
@@ -22,9 +23,9 @@ public class KSorting {
             if (max > myArray.length - 1) {
                 max = myArray.length - 1;
             }
-
+            //choose random index within [min, max]
             int j = min + (int)(Math.random() * (max - min + 1));
-
+            //swap the two elements
             int temp = myArray[i];
             myArray[i] = myArray[j];
             myArray[j] = temp;
