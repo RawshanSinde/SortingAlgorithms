@@ -24,7 +24,7 @@ public class Tester {
         return (endTime - startTime)/1000000.0;
     }
 
-    public void test(int iterations, int size) {
+    public String test(int iterations, int size) {
         double totalTime = 0.0;
         //run the singleTest method as many times as number of iterations provided
         for (int i = 0; i < iterations; i++) {
@@ -32,6 +32,6 @@ public class Tester {
         }
         //print the average time the algorithm takes to sort an array of given size
         double averageTime = totalTime / iterations;
-        System.out.println("Sorted " + size + " elements in " + averageTime + " ms (avg)");
+        return "Sorted " + size + " elements in " + averageTime + " ms (avg)";
     }
 }
