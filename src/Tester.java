@@ -34,4 +34,27 @@ public class Tester {
         double averageTime = totalTime / iterations;
         return "Sorted " + size + " elements in " + averageTime + " ms (avg)";
     }
+
+    public double singleTestKSorted(int size) {
+        int[] array = new int[size];
+
+        KSorting.generateKSorted(array);
+
+        long startTime =  System.nanoTime();
+        sorting.sorty(array);
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime)/1000000.0;
+    }
+
+    public String testKSorted(int iterations, int size) {
+        double totalTime = 0.0;
+
+        for (int i = 0; i < iterations; i++) {
+            totalTime += singleTestKSorted(size);
+        }
+
+        double averageTime = totalTime / iterations;
+        return "Sorted " + size + " elements in " + averageTime + " ms (avg)";
+    }
 }

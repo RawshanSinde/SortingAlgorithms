@@ -62,5 +62,59 @@ public class Performance {
         } catch (IOException e) {
             System.out.println("Error writing to the file.");
         }
+
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("performance_report_kSorted.txt"));
+
+            //bubble sort
+            writer.println("Sorting algorithm- Bubble sort");
+            Tester tester = new Tester(new BubbleSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.println();
+
+            //insertion sort
+            writer.println("Sorting algorithm- Insertion sort");
+            tester = new Tester(new InsertionSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.println();
+
+            //selection sort
+            writer.println("Sorting algorithm- Selection sort");
+            tester = new Tester(new SelectionSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.println();
+
+            //shell sort
+            writer.println("Sorting algorithm- Shell sort");
+            tester = new Tester(new ShellSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.println();
+
+            //merge sort
+            writer.println("Sorting algorithm- Merge sort");
+            tester = new Tester(new MergeSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.println();
+
+            //quick sort
+            writer.println("Sorting algorithm- Quick sort");
+            tester = new Tester(new QuickSort());
+            for (int size : sizes) {
+                writer.println(tester.testKSorted(iterations, size));
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to the file.");
+        }
     }
 }
